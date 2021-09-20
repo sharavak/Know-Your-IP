@@ -3,17 +3,21 @@ const ref = document.createElement('h1');
 const button = document.querySelector('button');
 const userInput = document.querySelector('#address');
 const user = document.querySelector('input');
+ref.style.color = 'white';
+ref.style.fontSize = '1.3rem';
+ref.style.fontFamily = 'Barlow Condensed, sans-serif';
 
 const yourIP = async () => {
     container.textContent = '';
     try {
+        ref.textContent = '';
         const data = await fetch('http://ip-api.com/json/');
         const parsed = await data.json();
         update(parsed);
     }
     catch (e) {
-        console.log(e);
-        ref.textContent = 'Try Again in some time';
+        ref.textContent = 'Try again! something happened';
+        container.append(ref)
     }
 }
 
@@ -57,12 +61,14 @@ userInput.addEventListener('click', function () {
     else {
         const userIP = async () => {
             try {
+                ref.textContent = '';
                 const data = await fetch(`http://ip-api.com/json/${user.value}`);
                 const parsed = await data.json();
                 update(parsed);
             }
             catch (e) {
-                ref.textContent = 'Try Again in some time';
+                ref.textContent = 'Try again! something happened';
+                container.append(ref)
             }
         }
         userIP();
@@ -76,4 +82,5 @@ function styles(IP) {
     IP.style.fontWeight = '300';
     IP.style.fontFamily = 'Barlow Condensed, sans-serif';
     IP.style.textAlign = 'center';
+    IP.style.marginTop = '0px';
 }
