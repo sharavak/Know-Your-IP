@@ -41,7 +41,7 @@ function update(parsed) {
         city.textContent = `City:${parsed.city}`;
         lat.textContent = `Latitude: ${parsed.latitude}`;
         lon.textContent = `Longitude: ${parsed.longitude}`;
-        ISP.textContent = `ISP provider: ${parsed.org}`;
+        ISP.textContent = `Org: ${parsed.org}`;
         container.append(IP, country, state, region, city, lat, lon, ISP);
     }
 
