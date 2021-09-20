@@ -23,6 +23,10 @@ const yourIP = async () => {
 }
 
 function update(parsed) {
+    if(parsed.reason==='Invalid IP Address'){
+        alert('Please enter a vaid IP address')
+    }
+    else{
         container.style.backgroundColor = 'rgb(108 ,202 ,137)';
         container.style.transition = '2s ease';
         const IP = document.createElement('h1');
@@ -43,6 +47,7 @@ function update(parsed) {
         lon.textContent = `Longitude: ${parsed.longitude}`;
         ISP.textContent = `Org: ${parsed.org}`;
         container.append(IP, country, state, region, city, lat, lon, ISP);
+    }
     }
 
 
