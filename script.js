@@ -59,7 +59,7 @@ userInput.addEventListener('click', function () {
         const userIP = async () => {
             try {
                 ref.textContent = '';
-                const data = await fetch(`https://ipapi.co/json/${user.value}`);
+                const data = await fetch(`https://ipapi.co/${user.value}/json/`);
                 const parsed = await data.json();
                 update(parsed);
             }
