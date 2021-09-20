@@ -11,7 +11,8 @@ const yourIP = async () => {
     container.textContent = '';
     try {
         ref.textContent = '';
-        const data = await fetch('http://ip-api.com/json/');
+        const data = await fetch('https://ipapi.co/json/');
+        console.log(data)
         const parsed = await data.json();
         update(parsed);
     }
@@ -22,10 +23,6 @@ const yourIP = async () => {
 }
 
 function update(parsed) {
-    if (parsed.status === 'fail') {
-        alert('Invalid IP address');
-    }
-    else {
         container.style.backgroundColor = 'rgb(108 ,202 ,137)';
     container.style.transition = '2s ease';
         const IP = document.createElement('h1');
@@ -37,17 +34,17 @@ function update(parsed) {
         const ISP = document.createElement('p');
         const region = document.createElement('p');
         styles(IP)
-        IP.textContent = `IP address is:${parsed.query}`;
-        country.textContent = `Country:${parsed.country}`;
-        state.textContent = `State:${parsed.regionName}`;
+        IP.textContent = `IP address is:${parsed.ip}`;
+        country.textContent = `Country:${parsed.country_name}`;
+        state.textContent = `State:${parsed.region_code}`;
         region.textContent = `State code:${parsed.region}`
         city.textContent = `City:${parsed.city}`;
-        lat.textContent = `Latitude: ${parsed.lat}`;
-        lon.textContent = `Longitude: ${parsed.lon}`;
-        ISP.textContent = `ISP provider: ${parsed.isp}`;
+        lat.textContent = `Latitude: ${parsed.latitude}`;
+        lon.textContent = `Longitude: ${parsed.longitude}`;
+        ISP.textContent = `ISP provider: ${parsed.org}`;
         container.append(IP, country, state, region, city, lat, lon, ISP);
     }
-}
+
 
 button.addEventListener('click', yourIP);
 
@@ -62,7 +59,7 @@ userInput.addEventListener('click', function () {
         const userIP = async () => {
             try {
                 ref.textContent = '';
-                const data = await fetch(`http://ip-api.com/json/${user.value}`);
+                const data = await fetch(`https://ipapi.co/json/${user.value}`);
                 const parsed = await data.json();
                 update(parsed);
             }
