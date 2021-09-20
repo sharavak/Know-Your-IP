@@ -24,7 +24,7 @@ const yourIP = async () => {
 
 function update(parsed) {
         container.style.backgroundColor = 'rgb(108 ,202 ,137)';
-    container.style.transition = '2s ease';
+        container.style.transition = '2s ease';
         const IP = document.createElement('h1');
         const country = document.createElement('p');
         const state = document.createElement('p');
@@ -59,7 +59,7 @@ userInput.addEventListener('click', function () {
         const userIP = async () => {
             try {
                 ref.textContent = '';
-                const data = await fetch(`https://ipapi.co/${user.value}/json/`);
+                const data = await fetch('https://ipapi.co/'+user.value+'/json/');
                 const parsed = await data.json();
                 update(parsed);
             }
