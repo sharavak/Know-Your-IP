@@ -24,6 +24,7 @@ const yourIP = async () => {
 
 function update(parsed) {
     if(parsed.reason==='Invalid IP Address'){
+        console.log(parsed)
         alert('Please enter a vaid IP address')
     }
     else{
