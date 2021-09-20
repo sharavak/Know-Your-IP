@@ -33,8 +33,6 @@ function update(parsed) {
         const country = document.createElement('p');
         const state = document.createElement('p');
         const city = document.createElement('p');
-        const lat = document.createElement('p');
-        const lon = document.createElement('p');
         const ISP = document.createElement('p');
         const region = document.createElement('p');
         styles(IP)
@@ -43,10 +41,8 @@ function update(parsed) {
         state.textContent = `State:${parsed.region_code}`;
         region.textContent = `State code:${parsed.region}`
         city.textContent = `City:${parsed.city}`;
-        lat.textContent = `Latitude: ${parsed.latitude}`;
-        lon.textContent = `Longitude: ${parsed.longitude}`;
         ISP.textContent = `Org: ${parsed.org}`;
-        container.append(IP, country, state, region, city, lat, lon, ISP);
+        container.append(IP, country, state, region, city,ISP);
     }
     }
 
