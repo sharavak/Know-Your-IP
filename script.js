@@ -24,8 +24,8 @@ const yourIP = async () => {
 
 function update(parsed) {
     if(parsed.reason==='Invalid IP Address'){
-        console.log(parsed)
-        alert('Please enter a vaid IP address')
+        console.log(parsed);
+        alert('Please enter a vaid IP address');
     }
     else{
         container.style.backgroundColor = 'rgb(108 ,202 ,137)';
